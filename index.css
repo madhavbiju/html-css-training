@@ -1,3 +1,9 @@
+@property --rotate {
+  syntax: "<angle>";
+  initial-value: 132deg;
+  inherits: false;
+}
+
 * {
   margin: 0;
 }
@@ -10,9 +16,26 @@ body {
 }
 
 header {
-  background-color: #3c67e3;
+  background-image: linear-gradient(
+    var(--rotate),
+    #5ddcff,
+    #3c67e3 43%,
+    #4e00c2
+  );
+  opacity: 1;
+  transition: opacity 0.5s;
+  animation: spin 5s linear infinite;
   height: 150px;
   color: white;
+}
+
+@keyframes spin {
+  0% {
+    --rotate: 0deg;
+  }
+  100% {
+    --rotate: 360deg;
+  }
 }
 
 .navContainer {
